@@ -1,0 +1,424 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* =================== HEADER =================== */
+.header {
+  display: flex;
+  justify-content: center; /* logo + 2 nhóm nút ở giữa */
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 18px 0; /* khoảng cách giữa 2 đường kẻ */
+  position: relative;
+}
+
+/* 2 đường kẻ trên và dưới header */
+.header::before,
+.header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #d0d0d0;
+}
+
+.header::before {
+  top: 0;
+}
+
+.header::after {
+  bottom: 0;
+}
+
+/* Nhóm nút trái & phải */
+.nav-items {
+  display: flex;
+  gap: 32px; /* khoảng cách giữa các item */
+  align-items: center;
+  position: relative;
+  z-index: 1; /* nằm trên 2 đường kẻ */
+}
+
+/* khoảng cách giữa logo và 2 nhóm nút: 30px */
+.header .nav-items:first-child {
+  margin-right: 30px;
+}
+
+.header .nav-items:last-child {
+  margin-left: 30px;
+}
+
+/* nút menu dạng text giống ảnh mẫu */
+.nav-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #444;
+  font-weight: 500;
+  transition: color 0.2s ease, transform 0.2s ease;
+
+  /* thêm cho thẻ <a> */
+  display: inline-block; /* để hover/transform đẹp, giống button */
+  text-decoration: none; /* bỏ gạch chân của link */
+  line-height: 1; /* tránh bị lệch theo font */
+}
+
+.nav-btn:hover {
+  color: #667eea;
+  transform: translateY(-1px);
+}
+
+/* đảm bảo link đã click không đổi màu tím */
+.nav-btn:visited {
+  color: #444;
+}
+
+/* Logo tròn ở giữa, che đường kẻ */
+.logo {
+  width: 80px;
+  height: 80px;
+  border: 3px solid #667eea;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  z-index: 2; /* trên cả line và menu */
+}
+
+/* =================== HERO SECTION =================== */
+.hero-section {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.hero-main {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  padding: 50px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.hero-main h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.8s ease;
+}
+
+.hero-main p {
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.95;
+  animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+.hero-sidebar {
+  background: white;
+  border: 3px solid #e0e0e0;
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-item {
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.sidebar-item:hover {
+  background: #667eea;
+  color: white;
+  transform: translateX(10px);
+}
+
+/* =================== CONTENT GRID =================== */
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.grid-item {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 15px;
+  padding: 40px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(102, 126, 234, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.grid-item:hover::before {
+  left: 100%;
+}
+
+.grid-item:hover {
+  border-color: #667eea;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
+
+.grid-item h3 {
+  color: #667eea;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.grid-item p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.grid-item-tall {
+  grid-row: span 2;
+}
+
+/* =================== BOTTOM SECTION =================== */
+.bottom-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+.wide-item {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 15px;
+  padding: 40px;
+  transition: all 0.3s ease;
+}
+
+.wide-item:hover {
+  border-color: #667eea;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
+
+.wide-item h3 {
+  color: #667eea;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.footer-item {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+}
+
+/* =================== ANIMATION =================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================== MOBILE =================== */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Ẩn line trên mobile cho gọn, có thể bỏ nếu muốn giữ */
+  .header::before,
+  .header::after {
+    display: none;
+  }
+
+  /* bỏ margin 30px khi lên mobile */
+  .header .nav-items:first-child,
+  .header .nav-items:last-child {
+    margin: 0;
+  }
+
+  .hero-section {
+    grid-template-columns: 1fr;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-main h1 {
+    font-size: 32px;
+  }
+}
+
+/* ============== NEWS PAGE ============== */
+
+.news-section {
+  margin-top: 20px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Card chung */
+.news-card {
+  background: #111; /* giống hình mẫu đen xám */
+  border: 1px solid #555;
+  display: flex;
+  flex-direction: column; /* chia theo chiều dọc: hình + chữ */
+  overflow: hidden;
+}
+
+/* Hình 2/3 – chữ 1/3 */
+.news-card-image {
+  flex: 2; /* hình chiếm 2/3 khung */
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* tránh tràn ảnh */
+  position: relative;
+  display: flex;
+}
+
+.news-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ảnh fill mà không méo */
+  object-position: center; /* căn giữa ảnh */
+  display: block;
+}
+
+.news-card-content {
+  flex: 1; /* 1 phần */
+  padding: 12px 14px;
+  color: #eee;
+  font-size: 14px;
+}
+
+.news-card-content h3 {
+  margin-bottom: 6px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Các card đặc biệt để tạo layout như hình */
+.news-card--wide {
+  grid-column: span 2;
+}
+
+.news-card--tall {
+  grid-row: span 2;
+}
+
+/* Phân trang */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.page-link,
+.page-dots {
+  font-size: 14px;
+  padding: 6px 10px;
+  text-decoration: none;
+  color: #444;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+.page-link:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.page-link.active {
+  background: #667eea;
+  color: #fff;
+  border-color: #667eea;
+}
+
+/* Responsive NEWS */
+@media (max-width: 992px) {
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .news-card--wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card--wide,
+  .news-card--tall {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
