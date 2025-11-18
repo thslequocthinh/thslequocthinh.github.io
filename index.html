@@ -3,90 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Website Hiện Đại</title>
-
-    <!-- Link CSS -->
+    <title>Trang Tin Tức LQT</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
-      <!-- Header Navigation -->
       <header class="header">
         <div class="nav-items">
-          <button class="nav-btn">HOME</button>
+          <a href="index.html" class="nav-btn">HOME</a>
           <a href="news.html" class="nav-btn">NEWS</a>
         </div>
-        <div class="logo">W</div>
+        <div class="logo">LQT</div>
         <div class="nav-items">
           <button class="nav-btn">BLOGS</button>
           <button class="nav-btn">YOUTUBE</button>
         </div>
       </header>
-
-      <!-- Hero Section -->
       <section class="hero-section">
         <div class="hero-main">
-          <h1>Chào mừng đến với Website của chúng tôi</h1>
-          <p>
-            Khám phá những giải pháp sáng tạo và hiện đại cho doanh nghiệp của
-            bạn. Chúng tôi mang đến trải nghiệm tuyệt vời nhất với công nghệ
-            tiên tiến và dịch vụ chất lượng cao.
-          </p>
-        </div>
-        <div class="hero-sidebar">
-          <div class="sidebar-item">📊 Phân tích dữ liệu</div>
-          <div class="sidebar-item">🚀 Tăng trưởng nhanh</div>
-          <div class="sidebar-item">💡 Giải pháp sáng tạo</div>
-          <div class="sidebar-item">🎯 Hiệu quả cao</div>
-          <div class="sidebar-item">⭐ Chất lượng đảm bảo</div>
+          <div class="hero-img-wrap">
+            <img
+              src="img/Screenshot_from_2025-11-18_15-33-05-removebg-preview.png"
+              alt="Hero Image"
+            />
+            <img
+              class="img1"
+              src="img/mockofun-text-editor.png"
+              alt="Hero Image"
+            />
+          </div>
         </div>
       </section>
 
-      <!-- Content Grid -->
-      <section class="content-grid">
-        <div class="grid-item">
-          <h3>Dịch vụ 1</h3>
-          <p>
-            Cung cấp giải pháp toàn diện cho doanh nghiệp với đội ngũ chuyên
-            nghiệp và kinh nghiệm.
-          </p>
+      <div class="news-container">
+        <div id="content">
+          <div class="loading">Đang tải dữ liệu...</div>
         </div>
-        <div class="grid-item grid-item-tall">
-          <h3>Dịch vụ 2</h3>
-          <p>
-            Tư vấn chiến lược phát triển và mở rộng thị trường. Chúng tôi đồng
-            hành cùng bạn trên mọi chặng đường phát triển.
-          </p>
-          <br />
-          <p>
-            Với công nghệ hiện đại và phương pháp tiếp cận sáng tạo, chúng tôi
-            cam kết mang lại kết quả tốt nhất.
-          </p>
-        </div>
-        <div class="grid-item">
-          <h3>Dịch vụ 3</h3>
-          <p>
-            Hỗ trợ kỹ thuật 24/7 với đội ngũ chuyên gia giàu kinh nghiệm và tận
-            tâm.
-          </p>
-        </div>
-      </section>
-
-      <!-- Bottom Section -->
-      <section class="bottom-section">
-        <div class="wide-item">
-          <h3>Về chúng tôi</h3>
-          <p>
-            Chúng tôi là đội ngũ chuyên nghiệp với nhiều năm kinh nghiệm trong
-            lĩnh vực công nghệ và dịch vụ số. Sứ mệnh của chúng tôi là mang đến
-            những giải pháp tốt nhất cho khách hàng.
-          </p>
-        </div>
-        <div class="footer-item">
-          <h3>Liên hệ với chúng tôi</h3>
-          <p>Email: contact@website.com | Điện thoại: 0123 456 789</p>
-        </div>
-      </section>
+      </div>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
