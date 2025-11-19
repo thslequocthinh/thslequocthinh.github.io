@@ -786,3 +786,275 @@ body {
     margin-bottom: 15px;
   }
 }
+/* =================== VIDEO PAGE STYLES =================== */
+
+.video-page {
+  animation: fadeInUp 0.6s ease;
+}
+
+.video-container {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+}
+
+/* Video Grid - Mỗi video 1 dòng */
+.video-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* Video Card - Full width */
+.video-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 15px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.video-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(102, 126, 234, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+  z-index: 0;
+}
+
+.video-card:hover::before {
+  left: 100%;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+  border-color: #667eea;
+}
+
+/* Video Iframe Wrapper - Responsive 16:9 */
+.video-iframe-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #000;
+  z-index: 1;
+}
+
+.video-iframe-wrapper iframe,
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Video Info Section - Bên phải */
+.video-card > .video-title,
+.video-card > .video-info {
+  grid-column: 2;
+}
+
+/* Đặt iframe vào cột 1, title và info vào cột 2 */
+.video-card > .video-iframe-wrapper {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.video-card > .video-title {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+}
+
+.video-card > .video-info {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: start;
+}
+
+/* Video Title */
+.video-title {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.4;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.video-card:hover .video-title {
+  color: #667eea;
+}
+
+/* Video Info */
+.video-info {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+}
+button.youtube-btn {
+  background: transparent;
+  position: relative;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid rgb(255 0 0);
+  border-radius: 25px;
+  outline: none;
+  overflow: hidden;
+  color: rgb(255 0 0);
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+  margin: 20px auto;
+}
+
+/* Nội dung (icon + text) nằm trên lớp đỏ */
+button.youtube-btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+button.youtube-btn span {
+  margin-left: 10px;
+}
+
+a[href*="youtube"] {
+  text-decoration: none !important;
+}
+
+button.youtube-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -5em;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 50%;
+  display: block;
+  width: 20em;
+  height: 20em;
+  transition: box-shadow 0.5s ease-out;
+  z-index: 0; /* 🔴 quan trọng: không để -1 nữa */
+  background: transparent; /* cho chắc cú */
+}
+
+button.youtube-btn:hover {
+  color: #fff;
+}
+
+button.youtube-btn:hover::before {
+  box-shadow: inset 0 0 0 10em rgb(255 0 0);
+}
+
+/* =================== RESPONSIVE cho Video Page =================== */
+@media (max-width: 1024px) {
+  .video-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .video-card > .video-iframe-wrapper {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .video-card > .video-title {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .video-card > .video-info {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .video-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-container {
+    padding: 25px;
+  }
+
+  .video-grid {
+    gap: 30px;
+  }
+
+  .video-card {
+    padding: 20px;
+  }
+
+  .video-title {
+    font-size: 18px;
+  }
+
+  .video-info {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-container {
+    padding: 15px;
+  }
+
+  .video-grid {
+    gap: 25px;
+  }
+
+  .video-card {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .video-title {
+    font-size: 16px;
+    letter-spacing: 0.3px;
+  }
+
+  .video-info {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+}
