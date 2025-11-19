@@ -1,7 +1,6 @@
 // Đường dẫn tới file JSON
-const JSON_FILE = "khoahocdoisong_articles.json";
+const JSON_FILE = "news/khoahocdoisong_articles.json";
 const ITEMS_PER_PAGE = 6;
-
 let allArticles = [];
 let currentPage = 1;
 let totalPages = 1;
@@ -122,7 +121,6 @@ function createPagination() {
       dots.textContent = "...";
       paginationDiv.appendChild(dots);
     }
-
     const lastBtn = document.createElement("button");
     lastBtn.className = "page-btn";
     lastBtn.textContent = totalPages;
@@ -151,25 +149,50 @@ function createArticleCard(article) {
   const card = document.createElement("div");
   card.className = "article-card";
 
-  // Đường dẫn hình ảnh
-  const imagePath = `img_download/${article.id}.jpg`;
-
-  // Thêm sự kiện click để mở URL
+  // Chuyển hướng đến trang chi tiết thay vì mở URL gốc
   card.onclick = () => {
-    if (article.url) {
-      window.open(article.url, "_blank");
-    }
+    window.location.href = `article.html?id=${article.id}`;
   };
 
-  // Nội dung HTML của card, bao gồm xử lý ảnh lỗi
-  card.innerHTML = `
-    <img src="${imagePath}" 
-         alt="${article.tieu_de}" 
-         class="article-image"
-         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%23ddd%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23999%22 font-family=%22Arial%22%3EKhông có ảnh%3C/text%3E%3C/svg%3E'">
-    <div class="article-title">${article.tieu_de}</div>
-    <div class="article-description">${article.mo_ta}</div>
-  `;
+  const extensions = ["jpg", "webp", "png", "gif"];
+  const basePath = `img/${article.id}`;
+  let currentIndex = 0;
+
+  // Tạo thẻ img
+  const img = document.createElement("img");
+  img.alt = article.tieu_de;
+  img.className = "article-image";
+
+  // Hàm thử load lần lượt từng đuôi
+  function tryNextImage() {
+    if (currentIndex >= extensions.length) {
+      // Hết các đuôi => dùng placeholder SVG
+      img.src =
+        "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect width=%22200%22 height=%22200%22 fill=%22%23ddd%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23999%22 font-family=%22Arial%22%3EKhông có ảnh%3C/text%3E%3C/svg%3E";
+      img.onerror = null;
+      return;
+    }
+    const ext = extensions[currentIndex];
+    img.src = `${basePath}.${ext}`;
+    currentIndex++;
+  }
+
+  img.onerror = tryNextImage;
+  tryNextImage();
+
+  // Tạo phần nội dung text
+  const titleDiv = document.createElement("div");
+  titleDiv.className = "article-title";
+  titleDiv.textContent = article.tieu_de;
+
+  const descDiv = document.createElement("div");
+  descDiv.className = "article-description";
+  descDiv.textContent = article.mo_ta;
+
+  // Gắn vào card
+  card.appendChild(img);
+  card.appendChild(titleDiv);
+  card.appendChild(descDiv);
 
   return card;
 }
