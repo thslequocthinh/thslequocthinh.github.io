@@ -246,7 +246,7 @@ body {
 
   .hero-img-wrap .img1 {
     max-height: 500px; /* CHUẨN */
-    bottom: -7%;
+    bottom: -10%;
   }
 }
 
@@ -262,7 +262,7 @@ body {
 
   .hero-img-wrap .img1 {
     max-height: 400px; /* Bằng img 1 */
-    bottom: -2%;
+    bottom: -12%;
   }
 
   .hero-main {
