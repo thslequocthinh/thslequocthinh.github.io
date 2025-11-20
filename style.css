@@ -111,6 +111,12 @@ body {
 /* =================== HERO SECTION =================== */
 /* =================== HERO SECTION (RESPONSIVE) =================== */
 /* =================== HERO SECTION (RESPONSIVE) =================== */
+/* =================== HERO SECTION - CHUẨN HÓA TỪ LAPTOP =================== */
+
+/* BASE - Laptop 1024-1199px làm chuẩn (Scale Factor = 100%) */
+/* =================== HERO SECTION - KÍCH THƯỚC MỚI =================== */
+
+/* BASE - Laptop 1024-1199px làm chuẩn (Scale Factor = 100%) */
 .hero-section {
   max-width: 1200px;
   margin: 0 auto;
@@ -120,38 +126,38 @@ body {
 .hero-img-wrap {
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: 900px; /* TĂNG TỪ 700px */
   margin: 0 auto;
-  /* Thêm padding-bottom để tạo không gian cho hình chồng lên */
-  padding-bottom: 35%;
+  padding-bottom: 20%;
 }
 
-/* Hình chính */
+/* Hình 1 - Chính */
 .hero-img-wrap img:first-child {
   width: 100%;
   height: auto;
-  max-height: 500px;
+  max-height: 600px; /* TĂNG TỪ 400px */
   object-fit: contain;
   display: block;
 }
 
-/* Hình chồng lên - Giữ nguyên tỷ lệ và vị trí */
+/* Hình 2 - Chồng lên (img1) */
 .hero-img-wrap .img1 {
   position: absolute;
   left: 50%;
-  bottom: 13%;
+  bottom: 13%; /* CỐ ĐỊNH */
   transform: translateX(-50%);
-  width: 100%; /* Cùng width với hình chính */
+  width: 100%;
   height: auto;
-  max-height: 500px;
+  max-height: 600px; /* PHẢI BẰNG IMG 1 */
   object-fit: contain;
   z-index: 2;
 }
 
+/* Hero Content */
 .hero-main {
   background: linear-gradient(135deg, white 8%, rgb(240, 240, 240) 100%);
   border-radius: 15px;
-  padding: 50px 50px 100px;
+  padding: 40px 40px 80px;
   color: #555;
   display: flex;
   flex-direction: column;
@@ -161,7 +167,7 @@ body {
 }
 
 .hero-main h1 {
-  font-size: 48px;
+  font-size: 40px;
   margin-bottom: 20px;
   animation: fadeInUp 0.8s ease;
   font-family: "Montserrat", sans-serif;
@@ -169,83 +175,108 @@ body {
 }
 
 .hero-main p {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.6;
   opacity: 0.95;
   animation: fadeInUp 0.8s ease 0.2s backwards;
 }
 
-/* =================== RESPONSIVE CHO HERO =================== */
+/* =================== RESPONSIVE - SCALE TỪ LAPTOP =================== */
 
-/* Laptop lớn (1200px - 1400px) */
-@media (max-width: 1400px) {
-  .hero-img-wrap img:first-child {
-    max-height: 600px;
-  }
-
-  .hero-img-wrap .img1 {
-    max-height: 450px;
-    /* Giữ nguyên bottom: -35% */
-  }
-
-  .hero-main {
-    padding: 40px 40px 90px;
-  }
-
-  .hero-main h1 {
-    font-size: 42px;
-  }
-}
-
-/* Laptop (1024px - 1200px) */
-@media (max-width: 1200px) {
+/* Desktop XL (≥1400px) - Scale 125% */
+@media (min-width: 1400px) {
   .hero-img-wrap {
-    max-width: 700px;
+    max-width: 1000px; /* 900 × 1.25 */
   }
 
   .hero-img-wrap img:first-child {
-    max-height: 400px;
+    max-height: 500px; /* 600 × 1.25 */
   }
 
   .hero-img-wrap .img1 {
-    max-height: 400px;
-    /* Giữ nguyên bottom: -35% */
+    max-height: 500px; /* Bằng img 1 */
+    bottom: 0%;
   }
 
   .hero-main {
-    padding: 35px 35px 80px;
+    padding: 50px 50px 100px;
   }
 
   .hero-main h1 {
-    font-size: 38px;
+    font-size: 48px;
   }
 
   .hero-main p {
-    font-size: 17px;
+    font-size: 18px;
   }
 }
 
-/* Tablet (768px - 1024px) */
-@media (max-width: 1024px) {
+/* Desktop (1200-1399px) - Scale 112.5% */
+@media (max-width: 1399px) and (min-width: 1200px) {
   .hero-img-wrap {
-    max-width: 600px;
+    max-width: 900px; /* 900 × 1.125 */
   }
 
   .hero-img-wrap img:first-child {
-    max-height: 350px;
+    max-height: 550px; /* 600 × 1.125 */
   }
 
   .hero-img-wrap .img1 {
-    max-height: 350px;
-    /* Giữ nguyên bottom: -35% */
+    max-height: 550px; /* Bằng img 1 */
+    bottom: -3%;
   }
 
   .hero-main {
-    padding: 30px 30px 70px;
+    padding: 45px 45px 90px;
   }
 
   .hero-main h1 {
-    font-size: 34px;
+    font-size: 44px;
+  }
+
+  .hero-main p {
+    font-size: 17.5px;
+  }
+}
+
+/* Laptop (1024-1199px) - Scale 100% - CHUẨN */
+@media (max-width: 1199px) and (min-width: 1024px) {
+  .hero-img-wrap {
+    max-width: 750px; /* CHUẨN */
+  }
+
+  .hero-img-wrap img:first-child {
+    max-height: 500px; /* CHUẨN */
+  }
+
+  .hero-img-wrap .img1 {
+    max-height: 500px; /* CHUẨN */
+    bottom: -7%;
+  }
+}
+
+/* Tablet (768-1023px) - Scale 87.5% */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .hero-img-wrap {
+    max-width: 600px; /* 900 × 0.875 */
+  }
+
+  .hero-img-wrap img:first-child {
+    max-height: 400px; /* 600 × 0.875 */
+  }
+
+  .hero-img-wrap .img1 {
+    max-height: 400px; /* Bằng img 1 */
+    bottom: -2%;
+  }
+
+  .hero-main {
+    padding: 35px 35px 70px;
+    border-radius: 12px;
+  }
+
+  .hero-main h1 {
+    font-size: 35px;
   }
 
   .hero-main p {
@@ -253,32 +284,32 @@ body {
   }
 }
 
-/* Tablet nhỏ / Mobile lớn (600px - 768px) */
-@media (max-width: 768px) {
+/* Mobile Large (600-767px) - Scale 75% */
+@media (max-width: 767px) and (min-width: 600px) {
   .hero-section {
     padding: 0 15px;
   }
 
   .hero-img-wrap {
-    max-width: 500px;
+    max-width: 675px; /* 900 × 0.75 */
   }
 
   .hero-img-wrap img:first-child {
-    max-height: 300px;
+    max-height: 450px; /* 600 × 0.75 */
   }
 
   .hero-img-wrap .img1 {
-    max-height: 300px;
-    /* Giữ nguyên bottom: -35% */
+    max-height: 450px; /* Bằng img 1 */
+    bottom: -15%;
   }
 
   .hero-main {
-    padding: 25px 25px 60px;
+    padding: 30px 30px 60px;
     border-radius: 12px;
   }
 
   .hero-main h1 {
-    font-size: 28px;
+    font-size: 30px;
     margin-bottom: 15px;
   }
 
@@ -287,27 +318,32 @@ body {
   }
 }
 
-/* Mobile (480px - 600px) */
-@media (max-width: 600px) {
+/* Mobile Medium (480-599px) - Scale 62.5% */
+@media (max-width: 599px) and (min-width: 480px) {
+  .hero-section {
+    padding: 0 15px;
+  }
+
   .hero-img-wrap {
-    max-width: 400px;
+    max-width: 562px; /* 900 × 0.625 */
   }
 
   .hero-img-wrap img:first-child {
-    max-height: 250px;
+    max-height: 375px; /* 600 × 0.625 */
   }
 
   .hero-img-wrap .img1 {
-    max-height: 250px;
-    /* Giữ nguyên bottom: -35% */
+    max-height: 375px; /* Bằng img 1 */
+    bottom: -15%;
   }
 
   .hero-main {
-    padding: 20px 20px 50px;
+    padding: 25px 25px 50px;
+    border-radius: 10px;
   }
 
   .hero-main h1 {
-    font-size: 24px;
+    font-size: 25px;
   }
 
   .hero-main p {
@@ -316,27 +352,27 @@ body {
   }
 }
 
-/* Mobile nhỏ (< 480px) */
-@media (max-width: 480px) {
+/* Mobile Small (360-479px) - Scale 50% */
+@media (max-width: 479px) and (min-width: 360px) {
   .hero-section {
     padding: 0 10px;
   }
 
   .hero-img-wrap {
-    max-width: 320px;
+    max-width: 450px; /* 900 × 0.5 */
   }
 
   .hero-img-wrap img:first-child {
-    max-height: 200px;
+    max-height: 300px; /* 600 × 0.5 */
   }
 
   .hero-img-wrap .img1 {
-    max-height: 200px;
-    /* Giữ nguyên bottom: -35% */
+    max-height: 300px; /* Bằng img 1 */
+    bottom: -15%;
   }
 
   .hero-main {
-    padding: 15px 15px 40px;
+    padding: 20px 20px 40px;
     border-radius: 10px;
   }
 
@@ -351,27 +387,50 @@ body {
   }
 }
 
-/* Mobile rất nhỏ (< 360px) */
-@media (max-width: 360px) {
+/* Mobile Extra Small (<360px) - Scale 45% */
+@media (max-width: 359px) {
+  .hero-section {
+    padding: 0 10px;
+  }
+
   .hero-img-wrap {
-    max-width: 280px;
+    max-width: 500px; /* 900 × 0.45 */
   }
 
   .hero-img-wrap img:first-child {
-    max-height: 180px;
+    max-height: 200px; /* 600 × 0.45 */
   }
 
   .hero-img-wrap .img1 {
-    max-height: 180px;
-    /* Giữ nguyên bottom: -35% */
+    max-height: 200px; /* Bằng img 1 */
+    bottom: -15%;
+  }
+
+  .hero-main {
+    padding: 18px 18px 35px;
+    border-radius: 8px;
   }
 
   .hero-main h1 {
     font-size: 18px;
+    margin-bottom: 10px;
   }
 
   .hero-main p {
     font-size: 12px;
+    line-height: 1.3;
+  }
+}
+
+/* =================== ANIMATION =================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
