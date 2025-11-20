@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết bài viết - Tạp chí hiện đại</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="detail_style.css" /> -->
+  </head>
+  <body>
+    <!-- Header giống hệt blog.html -->
+    <header class="header">
+      <div class="nav-items">
+        <a href="index.html" class="nav-btn">HOME</a>
+        <a href="news.html" class="nav-btn">NEWS</a>
+      </div>
+      <div class="nav-items">
+        <a href="blog.html" class="nav-btn">BLOG</a>
+        <a href="video.html" class="nav-btn">YOUTUBE</a>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="detail-container">
+      <a href="blog.html" class="back-button">← Quay lại</a>
+
+      <div id="loadingMessage" class="loading">Đang tải bài viết...</div>
+
+      <div id="articleContainer" style="display: none">
+        <div class="article-header">
+          <h1 class="article-title" id="articleTitle">Tiêu đề bài báo</h1>
+          <p class="article-author">Mr LQT</p>
+        </div>
+
+        <div class="article-content">
+          <div class="article-text" id="articleContent">Phần nội dung</div>
+        </div>
+      </div>
+    </main>
+
+    <script src="detail_blog.js"></script>
+  </body>
+</html>

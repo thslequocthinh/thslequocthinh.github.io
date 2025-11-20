@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - Tạp chí hiện đại</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header giống hệt index.html -->
+   <header class="header">
+        <div class="nav-items">
+          <a href="index.html" class="nav-btn">HOME</a>
+          <a href="news.html" class="nav-btn">NEWS</a>
+        </div>
+        <div class="nav-items">
+          <a href="blog.html" class="nav-btn">BLOG</a>
+          <a href="video.html" class="nav-btn">YOUTUBE</a>
+        </div>
+      </header>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="blog-header">
+        <h1 class="blog-title">Khám phá câu chuyện</h1>
+        <p class="blog-subtitle">Những tác phẩm viết của bản thân</p>
+      </div>
+
+      <!-- Horizontal scroll container -->
+      <div class="scroll-container">
+        <button class="scroll-btn scroll-btn-left" id="scrollLeft">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="cards-wrapper" id="cardsWrapper">
+          <!-- Cards sẽ được sinh động bằng JS -->
+        </div>
+
+        <button class="scroll-btn scroll-btn-right" id="scrollRight">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </main>
+
+    <script src="blog.js"></script>
+  </body>
+</html>
+
+</html>
